@@ -1,0 +1,20 @@
+[
+{
+  "modid": "Majyyka",
+  "name": "Majyyka",
+  "description": "A magic mod, or one might say, a majyyk mod.",
+  "version": "0.0.01.@@BUILD@@",
+  "url": "www.github.com/myoKun345/Majyyka/",
+  "updateUrl": "",
+  "authorList": [
+    "Myo-kun"
+  ],
+  "credits": "By Myo-kun",
+  "logoFile": "",
+  "screenshots": [
+  ],
+  "parent":"",
+  "dependencies": [
+  ]
+}
+]
