@@ -8,7 +8,7 @@
  */
 package majyyka.core.lib
 
-class MajyykaReference {
+object MajyykaReference {
     
     final val MOD_ID:String = "Majyyka"
     final val MOD_NAME:String = "Majyyka"
