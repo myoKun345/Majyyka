@@ -21,9 +21,11 @@ object ConfigHandler {
         config.load
         
         majyykFlowerID = config.getBlock(blockCategory, majyykFlowerKey, majyykFlowerDefault).getInt
+        majyykDirtID = config.getBlock(blockCategory, majyykDirtKey, majyykDirtDefault).getInt
         
         majyykInkID = config.getItem(itemCategory, majyykInkKey, majyykInkDefault).getInt
         majyykBookID = config.getItem(itemCategory, majyykBookKey, majyykBookDefault).getInt
+        stickID = config.getItem(itemCategory, stickKey, stickDefault).getInt
         
         config.save
         

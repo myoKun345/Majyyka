@@ -14,7 +14,7 @@ object MajyykaTab extends CreativeTabs("Majyyka") {
     
     override def getTabIconItemIndex():Int = {
         
-        return MajyykaIDs.majyykFlowerID
+        return MajyykaIDs.majyykBookID
         
     }
     

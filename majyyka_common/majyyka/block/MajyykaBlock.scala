@@ -35,6 +35,7 @@ object MajyykFlower extends MajyykaBlock(majyykFlowerID, Material.plants) with I
     
     setTickRandomly(true)
     setBlockBounds(0.3F, 0, 0.3F, 0.7F, 0.6F, 0.7F)
+    setStepSound(Block.soundGrassFootstep)
     
     override def getUnlocalizedName():String = {
         
@@ -57,7 +58,7 @@ object MajyykFlower extends MajyykaBlock(majyykFlowerID, Material.plants) with I
     
     def canGrow(id:Int):Boolean = {
         
-        return id == grass.blockID || id == dirt.blockID || id == tilledField.blockID
+        return id == grass.blockID || id == dirt.blockID || id == tilledField.blockID || id == majyykDirtID
         
     }
     
@@ -113,6 +114,26 @@ object MajyykFlower extends MajyykaBlock(majyykFlowerID, Material.plants) with I
     override def getPlantMetadata(world:World, x:Int, y:Int, z:Int):Int = {
         
         return world.getBlockMetadata(x, y, z)
+        
+    }
+    
+}
+
+object MajyykImbuedDirt extends MajyykaBlock(majyykDirtID, Material.ground) {
+    
+    setUnlocalizedName(majyykDirtUnloc)
+    setStepSound(Block.soundGravelFootstep)
+    
+    override def canSustainPlant(world:World, x:Int, y:Int, z:Int, direction:ForgeDirection, plant:IPlantable):Boolean = {
+        
+        return true
+        
+    }
+    
+    @SideOnly(Side.CLIENT)
+    override def registerIcons(register:IconRegister) {
+        
+        blockIcon = register.registerIcon(MOD_ID + ":" + majyykDirtUnloc)
         
     }
     
