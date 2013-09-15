@@ -1,4 +1,4 @@
 Majyyka
 =======
 
-An excuse to play with the Thaumcraft 4 API
+A magic mod, or you could say, a majyyk mod.
