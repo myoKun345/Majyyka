@@ -18,11 +18,14 @@ object ConfigHandler {
         
         val config:Configuration = new Configuration(file)
         
-        config.load()
+        config.load
         
-        majyykFlowerID = config.getBlock(blockCategory, majyykFlowerKey, majyykFlowerDefault).getInt()
+        majyykFlowerID = config.getBlock(blockCategory, majyykFlowerKey, majyykFlowerDefault).getInt
         
-        config.save()
+        majyykInkID = config.getItem(itemCategory, majyykInkKey, majyykInkDefault).getInt
+        majyykBookID = config.getItem(itemCategory, majyykBookKey, majyykBookDefault).getInt
+        
+        config.save
         
     }
 

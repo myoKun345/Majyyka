@@ -10,6 +10,7 @@ package majyyka.block
 
 import majyyka.Majyyka._
 import majyyka.core.MajyykaIDs._
+import majyyka.core.lib.MajyykaReference._
 import net.minecraft.block.Block
 import net.minecraft.block.Block._
 import net.minecraft.block.material.Material
@@ -20,6 +21,9 @@ import java.util.Random
 import net.minecraftforge.common.ForgeDirection
 import net.minecraft.util.AxisAlignedBB
 import net.minecraft.item.ItemStack
+import net.minecraft.client.renderer.texture.IconRegister
+import cpw.mods.fml.relauncher.SideOnly
+import cpw.mods.fml.relauncher.Side
 
 class MajyykaBlock(arg:Int, mat:Material) extends Block(arg, mat) {
     
@@ -27,7 +31,7 @@ class MajyykaBlock(arg:Int, mat:Material) extends Block(arg, mat) {
     
 }
 
-class MajyykaBlockFlower(id:Int) extends MajyykaBlock(id, Material.plants) with IPlantable {
+object MajyykFlower extends MajyykaBlock(majyykFlowerID, Material.plants) with IPlantable {
     
     setTickRandomly(true)
     setBlockBounds(0.3F, 0, 0.3F, 0.7F, 0.6F, 0.7F)
@@ -35,6 +39,13 @@ class MajyykaBlockFlower(id:Int) extends MajyykaBlock(id, Material.plants) with 
     override def getUnlocalizedName():String = {
         
         return "tile." + majyykFlowerUnloc
+        
+    }
+    
+    @SideOnly(Side.CLIENT)
+    override def registerIcons(register:IconRegister) {
+        
+        blockIcon = register.registerIcon(MOD_ID + ":" + majyykFlowerUnloc)
         
     }
     

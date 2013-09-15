@@ -25,5 +25,25 @@ object MajyykaIDs {
 	    
 	    /* Unlocalized Names */
 	    val majyykFlowerUnloc:String = "majyykFlower"
+    
+    /* Item */
+        /* Config Category */
+        val itemCategory:String = "Item IDs"
+        
+        /* Default IDs */
+        val majyykInkDefault:Int = 7800
+        val majyykBookDefault:Int = 7801
+        
+        /* Current IDs */
+        var majyykInkID:Int = 0
+        var majyykBookID:Int = 0
+        
+        /* Config Keys */
+        val majyykInkKey:String = "MajyykInk"
+        val majyykBookKey:String = "MajyykBook"
+        
+        /* Unlocalized Names */
+        val majyykInkUnloc:String = "majyykInk"
+        val majyykBookUnloc:String = "majyykBook"
 
 }

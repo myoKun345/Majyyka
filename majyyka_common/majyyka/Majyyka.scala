@@ -23,6 +23,9 @@ import majyyka.core.MajyykaStuff
 import majyyka.core.lib.MajyykaReference._
 import majyyka.core.ConfigHandler
 import java.io.File
+import majyyka.core.MajyykaTab
+import majyyka.core.gui.GUIHandler
+import majyyka.core.LogHelper
 
 @Mod(modid="Majyyka", name="Majyyka", version="0.0.01.@@BUILD@@", modLanguage="scala")
 @NetworkMod(channels=Array("majyyka"), clientSideRequired=true, serverSideRequired=false, packetHandler=classOf[PacketHandler])
@@ -31,21 +34,27 @@ object Majyyka {
     @SidedProxy(clientSide="majyyka.core.proxy.ClientProxy", serverSide="majyyka.core.proxy.CommonProxy")
     var proxy:CommonProxy = null
     
-    val majyykaTab:CreativeTabs = new CreativeTabs("Majyyka")
+    val majyykaTab:CreativeTabs = MajyykaTab
     
     @EventHandler
     def preInit(event:FMLPreInitializationEvent) {
         
+        LogHelper.init
+        
         ConfigHandler.main(new File(event.getModConfigurationDirectory().getAbsolutePath() + File.separator + MOD_ID.toLowerCase() + File.separator + MOD_ID + ".cfg"))
         
         MajyykaStuff.addBlocks
+        
+        MajyykaStuff.addItems
         
     }
     
     @EventHandler
     def init(event:FMLInitializationEvent) {
         
+        GUIHandler
         
+        MajyykaStuff.addCrafting
         
     }
     
