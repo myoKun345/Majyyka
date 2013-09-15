@@ -30,5 +30,17 @@ object ConfigHandler {
         config.save
         
     }
+    
+    def worldGen(file:File) {
+        
+        val config:Configuration = new Configuration(file)
+        
+        config.load
+        
+        majyykFlowerGen = config.get(worldgenCategory, majyykFlowerGenKey, true).getBoolean(true)
+        
+        config.save
+        
+    }
 
 }

@@ -26,6 +26,8 @@ import java.io.File
 import majyyka.core.MajyykaTab
 import majyyka.core.gui.GUIHandler
 import majyyka.core.LogHelper
+import cpw.mods.fml.common.registry.GameRegistry
+import majyyka.core.MajyykaWorldGen
 
 @Mod(modid="Majyyka", name="Majyyka", version="0.0.01.@@BUILD@@", modLanguage="scala")
 @NetworkMod(channels=Array("majyyka"), clientSideRequired=true, serverSideRequired=false, packetHandler=classOf[PacketHandler])
@@ -41,7 +43,8 @@ object Majyyka {
         
         LogHelper.init
         
-        ConfigHandler.main(new File(event.getModConfigurationDirectory().getAbsolutePath() + File.separator + MOD_ID.toLowerCase() + File.separator + MOD_ID + ".cfg"))
+        ConfigHandler.main(new File(event.getModConfigurationDirectory.getAbsolutePath + File.separator + MOD_ID.toLowerCase() + File.separator + MOD_ID + ".cfg"))
+        ConfigHandler.worldGen(new File(event.getModConfigurationDirectory.getAbsolutePath + File.separator + MOD_ID.toLowerCase() + File.separator + "WorldGen.cfg"))
         
         MajyykaStuff.addBlocks
         
@@ -57,6 +60,8 @@ object Majyyka {
         MajyykaStuff.addCrafting
         
         MajyykaStuff.addOreDict
+        
+        GameRegistry.registerWorldGenerator(MajyykaWorldGen)
         
     }
     

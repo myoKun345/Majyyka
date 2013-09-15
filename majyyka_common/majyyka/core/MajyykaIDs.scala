@@ -53,5 +53,15 @@ object MajyykaIDs {
         val majyykInkUnloc:String = "majyykInk"
         val majyykBookUnloc:String = "majyykBook"
         val stickUnloc:Array[String] = Array("stickOak", "stickBirch", "stickSpruce", "stickJungle")
-
+        
+    /* WorldGen */
+        /* Config Category */
+        val worldgenCategory:String = "World Gen Toggles"
+        
+        /* Current Setting */
+        var majyykFlowerGen:Boolean = true
+        
+        /* Config Keys */
+        val majyykFlowerGenKey:String = "MajyykFlowerGen"
+    
 }
