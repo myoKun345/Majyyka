@@ -52,6 +52,6 @@ object MajyykaIDs {
         /* Unlocalized Names */
         val majyykInkUnloc:String = "majyykInk"
         val majyykBookUnloc:String = "majyykBook"
-        val stickUnloc:Array[String] = Array("stickBirch", "stickSpruce", "stickJungle")
+        val stickUnloc:Array[String] = Array("stickOak", "stickBirch", "stickSpruce", "stickJungle")
 
 }

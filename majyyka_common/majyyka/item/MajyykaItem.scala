@@ -108,6 +108,13 @@ object MajyykaStick extends MajyykaItem(stickID) {
     }
     
     @SideOnly(Side.CLIENT)
+    override def getIconFromDamage(dmg:Int):Icon = {
+        
+        return icons(dmg)
+        
+    }
+    
+    @SideOnly(Side.CLIENT)
     override def getSubItems(id:Int, tab:CreativeTabs, list:List[_]) {
         
         for (i <- 0 until stickUnloc.length) {

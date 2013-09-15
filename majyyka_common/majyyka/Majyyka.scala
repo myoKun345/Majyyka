@@ -56,6 +56,8 @@ object Majyyka {
         
         MajyykaStuff.addCrafting
         
+        MajyykaStuff.addOreDict
+        
     }
     
     @EventHandler
