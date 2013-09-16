@@ -8,6 +8,14 @@
  */
 package majyyka.core.proxy
 
-class ClientProxy extends CommonProxy {
+import majyyka.core.MajyykaIDs._
+import net.minecraftforge.client.MinecraftForgeClient
+import majyyka.client.ItemWandRenderer
 
+class ClientProxy extends CommonProxy {
+    
+    override def initRendering {
+        MinecraftForgeClient.registerItemRenderer(wandID, new ItemWandRenderer)
+    }
+    
 }

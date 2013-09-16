@@ -73,6 +73,8 @@ object Majyyka {
         
         GameRegistry.registerWorldGenerator(MajyykaWorldGen)
         
+        proxy.initRendering
+        
     }
     
     @EventHandler

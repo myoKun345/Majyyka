@@ -9,5 +9,11 @@
 package majyyka.core.proxy
 
 class CommonProxy {
-
+    
+    def initRendering {
+        
+        
+        
+    }
+    
 }
