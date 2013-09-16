@@ -28,6 +28,8 @@ import majyyka.core.gui.GUIHandler
 import majyyka.core.LogHelper
 import cpw.mods.fml.common.registry.GameRegistry
 import majyyka.core.MajyykaWorldGen
+import java.util.logging.Level
+import majyyka.api.Wand
 
 @Mod(modid="Majyyka", name="Majyyka", version="0.0.01.@@BUILD@@", modLanguage="scala")
 @NetworkMod(channels=Array("majyyka"), clientSideRequired=true, serverSideRequired=false, packetHandler=classOf[PacketHandler])
@@ -46,9 +48,17 @@ object Majyyka {
         ConfigHandler.main(new File(event.getModConfigurationDirectory.getAbsolutePath + File.separator + MOD_ID.toLowerCase() + File.separator + MOD_ID + ".cfg"))
         ConfigHandler.worldGen(new File(event.getModConfigurationDirectory.getAbsolutePath + File.separator + MOD_ID.toLowerCase() + File.separator + "WorldGen.cfg"))
         
+        MajyykaStuff.addWands
+        
         MajyykaStuff.addBlocks
         
         MajyykaStuff.addItems
+        
+        MajyykaStuff.addFluids
+        
+        LogHelper.log(Level.INFO, "" + Wand.wands.size())
+        LogHelper.log(Level.INFO, "" + Wand.wands.keySet())
+        LogHelper.log(Level.INFO, "" + Wand.wands.values())
         
     }
     

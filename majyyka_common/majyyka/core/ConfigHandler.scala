@@ -26,6 +26,9 @@ object ConfigHandler {
         majyykInkID = config.getItem(itemCategory, majyykInkKey, majyykInkDefault).getInt
         majyykBookID = config.getItem(itemCategory, majyykBookKey, majyykBookDefault).getInt
         stickID = config.getItem(itemCategory, stickKey, stickDefault).getInt
+        wandCoreID = config.getItem(itemCategory, wandCoreKey, wandCoreDefault).getInt
+        wandHandleID = config.getItem(itemCategory, wandHandleKey, wandHandleDefault).getInt
+        wandID = config.getItem(itemCategory, wandKey, wandDefault).getInt
         
         config.save
         

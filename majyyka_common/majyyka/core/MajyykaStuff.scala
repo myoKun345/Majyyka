@@ -20,6 +20,11 @@ import net.minecraft.item.ItemStack
 import majyyka.item.MajyykBook
 import majyyka.item.MajyykaStick
 import net.minecraftforge.oredict.OreDictionary
+import net.minecraftforge.fluids.FluidRegistry
+import majyyka.api.MajyykaAPI
+import majyyka.item.MajyykWand
+import majyyka.item.Core
+import majyyka.item.Handle
 
 object MajyykaStuff {
     
@@ -27,6 +32,7 @@ object MajyykaStuff {
         
         GameRegistry.registerBlock(MajyykFlower, "majyykFlower")
         GameRegistry.registerBlock(MajyykImbuedDirt, classOf[ItemMajyykDirt], "majyykDirt")
+        //GameRegistry.registerBlock(MajyykEssenceBlock, "majyykEssence")
         
     }
     
@@ -35,6 +41,36 @@ object MajyykaStuff {
         GameRegistry.registerItem(MajyykInk, "majyykInk")
         GameRegistry.registerItem(MajyykBook, "majyykBook")
         GameRegistry.registerItem(MajyykaStick, "majyykaStick")
+        GameRegistry.registerItem(Core, "majyykWandCore")
+        GameRegistry.registerItem(Handle, "majyykWandHandle")
+        GameRegistry.registerItem(MajyykWand, "majyykWand")
+        
+    }
+    
+    def addFluids {
+        
+    }
+    
+    def addWands {
+        
+        MajyykaAPI.addWandCore("oak", WandCoreOak)
+        MajyykaAPI.addWandCore("birch", WandCoreBirch)
+        MajyykaAPI.addWandCore("spruce", WandCoreSpruce)
+        MajyykaAPI.addWandCore("jungle", WandCoreJungle)
+        MajyykaAPI.addWandCore("iron", WandCoreIron)
+        MajyykaAPI.addWandCore("gold", WandCoreGold)
+        MajyykaAPI.addWandCore("emerald", WandCoreEmerald)
+        MajyykaAPI.addWandCore("diamond", WandCoreDiamond)
+        
+        MajyykaAPI.addWandHandle("leather", WandHandleLeather)
+        MajyykaAPI.addWandHandle("oak", WandHandleOak)
+        MajyykaAPI.addWandHandle("birch", WandHandleBirch)
+        MajyykaAPI.addWandHandle("spruce", WandHandleSpruce)
+        MajyykaAPI.addWandHandle("jungle", WandHandleJungle)
+        MajyykaAPI.addWandHandle("iron", WandHandleIron)
+        MajyykaAPI.addWandHandle("gold", WandHandleGold)
+        MajyykaAPI.addWandHandle("emerald", WandHandleEmerald)
+        MajyykaAPI.addWandHandle("diamond", WandHandleDiamond)
         
     }
     

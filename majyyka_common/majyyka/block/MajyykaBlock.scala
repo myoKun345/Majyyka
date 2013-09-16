@@ -24,6 +24,8 @@ import net.minecraft.item.ItemStack
 import net.minecraft.client.renderer.texture.IconRegister
 import cpw.mods.fml.relauncher.SideOnly
 import cpw.mods.fml.relauncher.Side
+import net.minecraftforge.fluids.BlockFluidClassic
+import net.minecraft.util.Icon
 
 class MajyykaBlock(arg:Int, mat:Material) extends Block(arg, mat) {
     
@@ -138,3 +140,27 @@ object MajyykImbuedDirt extends MajyykaBlock(majyykDirtID, Material.ground) {
     }
     
 }
+
+/*object MajyykEssenceBlock extends BlockFluidClassic(majyykEssenceDefault, MajyykEssence, Material.water) {
+    
+    @SideOnly(Side.CLIENT)
+    var flowIcon:Icon = null
+    @SideOnly(Side.CLIENT)
+    var stillIcon:Icon = null
+    
+    @SideOnly(Side.CLIENT)
+    override def getIcon(side:Int, meta:Int):Icon = {
+        
+        return flowIcon
+        
+    }
+    
+    @SideOnly(Side.CLIENT)
+    override def registerIcons(register:IconRegister) {
+        
+        flowIcon = register.registerIcon(MOD_ID + ":" + majyykEssenceUnloc + "_flow")
+        stillIcon = register.registerIcon(MOD_ID + ":" + majyykEssenceUnloc + "_flow")
+        
+    }
+    
+}*/

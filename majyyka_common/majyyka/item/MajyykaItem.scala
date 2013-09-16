@@ -24,6 +24,10 @@ import cpw.mods.fml.relauncher.Side
 import net.minecraft.item.EnumRarity
 import net.minecraft.util.Icon
 import net.minecraft.creativetab.CreativeTabs
+import majyyka.api.Wand
+import java.util.LinkedList
+import net.minecraft.nbt.NBTTagCompound
+import majyyka.core.util.StringUtils
 
 class MajyykaItem(arg:Int) extends Item(arg - ITEM_ID_CORRECTION) {
     
@@ -119,6 +123,152 @@ object MajyykaStick extends MajyykaItem(stickID) {
         
         for (i <- 0 until stickUnloc.length) {
             list.asInstanceOf[List[ItemStack]].add(new ItemStack(id, 1, i))
+        }
+        
+    }
+    
+}
+
+object Handle extends MajyykaItem(wandHandleID) {
+    
+    setHasSubtypes(true)
+    
+    private var icons:Array[Icon] = new Array[Icon](0)
+    
+    override def getUnlocalizedName(stack:ItemStack):String = {
+        
+        return "item." + handleUnloc(stack.getItemDamage)
+        
+    }
+    
+    @SideOnly(Side.CLIENT)
+    override def registerIcons(register:IconRegister) {
+        
+        icons = new Array[Icon](handleUnloc.length)
+        for (i <- 0 until handleUnloc.length) {
+            icons(i) = register.registerIcon(MOD_ID + ":" + handleUnloc(i))
+        }
+        
+    }
+    
+    @SideOnly(Side.CLIENT)
+    override def getIconFromDamage(dmg:Int):Icon = {
+        
+        return icons(dmg)
+        
+    }
+    
+    @SideOnly(Side.CLIENT)
+    override def getSubItems(id:Int, tab:CreativeTabs, list:List[_]) {
+        
+        for (i <- 0 until handleUnloc.length) {
+            list.asInstanceOf[List[ItemStack]].add(new ItemStack(id, 1, i))
+        }
+        
+    }
+    
+}
+
+object Core extends MajyykaItem(wandCoreID) {
+    
+    setHasSubtypes(true)
+    
+    private var icons:Array[Icon] = new Array[Icon](0)
+    
+    override def getUnlocalizedName(stack:ItemStack):String = {
+        
+        return "item." + coreUnloc(stack.getItemDamage)
+        
+    }
+    
+    @SideOnly(Side.CLIENT)
+    override def registerIcons(register:IconRegister) {
+        
+        icons = new Array[Icon](coreUnloc.length)
+        for (i <- 0 until coreUnloc.length) {
+            icons(i) = register.registerIcon(MOD_ID + ":" + coreUnloc(i))
+        }
+        
+    }
+    
+    @SideOnly(Side.CLIENT)
+    override def getIconFromDamage(dmg:Int):Icon = {
+        
+        return icons(dmg)
+        
+    }
+    
+    @SideOnly(Side.CLIENT)
+    override def getSubItems(id:Int, tab:CreativeTabs, list:List[_]) {
+        
+        for (i <- 0 until coreUnloc.length) {
+            list.asInstanceOf[List[ItemStack]].add(new ItemStack(id, 1, i))
+        }
+        
+    }
+    
+}
+
+object MajyykWand extends MajyykaItem(wandID) {
+    
+    private var wandTypes:LinkedList[String] = new LinkedList[String](Wand.wands.keySet())
+    private var icons:Array[Icon] = new Array[Icon](0)
+    
+    override def getUnlocalizedName(stack:ItemStack):String = {
+        
+        return "item.majyykWand"
+        
+    }
+    
+    override def getRarity(stack:ItemStack):EnumRarity = {
+        
+        return EnumRarity.rare
+        
+    }
+    
+    @SideOnly(Side.CLIENT)
+    override def registerIcons(register:IconRegister) {
+        
+        icons = new Array[Icon](wandTypes.size())
+        for (i <- 0 until wandTypes.size()) {
+            icons(i) = register.registerIcon(MOD_ID + ":wand" + wandTypes.get(i).capitalize)
+        }
+        
+    }
+    
+    @SideOnly(Side.CLIENT)
+    override def getIcon(stack:ItemStack, pass:Int):Icon = {
+        
+        if (stack.hasTagCompound()) {
+            return icons(stack.stackTagCompound.getInteger("WandTypeIndex"))
+        }
+        return null
+        
+    }
+    
+    @SideOnly(Side.CLIENT)
+    override def getSubItems(id:Int, tab:CreativeTabs, list:List[_]) {
+        
+        for (i <- 0 until wandTypes.size()) {
+            var stack:ItemStack = new ItemStack(id, 1, i)
+            stack.stackTagCompound = new NBTTagCompound()
+            stack.stackTagCompound.setString("WandType", wandTypes.get(i))
+            stack.stackTagCompound.setInteger("WandTypeIndex", i)
+        	list.asInstanceOf[List[ItemStack]].add(stack)
+        }
+        
+    }
+    
+    @SideOnly(Side.CLIENT)
+    override def addInformation(stack:ItemStack, player:EntityPlayer, list:List[_], useExtra:Boolean) {
+        
+        if (stack.hasTagCompound()) {
+        	list.asInstanceOf[List[String]].add("Core: " + stack.stackTagCompound.getString("WandType").substring(0, StringUtils.firstIndexOfUppercase(stack.stackTagCompound.getString("WandType"))).capitalize)
+        	list.asInstanceOf[List[String]].add("Handle: " + stack.stackTagCompound.getString("WandType").substring(StringUtils.firstIndexOfUppercase(stack.stackTagCompound.getString("WandType"))).capitalize)
+        }
+        else {
+            list.asInstanceOf[List[String]].add("This wand doesn't have NBT.")
+            list.asInstanceOf[List[String]].add("You will need to make a new one.")
         }
         
     }
