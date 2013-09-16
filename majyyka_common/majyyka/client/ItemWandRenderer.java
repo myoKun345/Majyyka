@@ -9,8 +9,10 @@
 package majyyka.client;
 
 import java.util.LinkedList;
+import java.util.logging.Level;
 
 import majyyka.api.Wand;
+import majyyka.core.LogHelper;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
@@ -33,7 +35,7 @@ public class ItemWandRenderer implements IItemRenderer {
     
     public boolean handleRenderType(ItemStack stack, ItemRenderType renderType) {
         
-        return true;
+        return renderType != ItemRenderType.FIRST_PERSON_HOLDING && renderType != ItemRenderType.FIRST_PERSON_MAP;
         
     }
     
@@ -45,32 +47,49 @@ public class ItemWandRenderer implements IItemRenderer {
     
     public void renderItem(ItemRenderType renderType, ItemStack stack, Object... data) {
         
+        //LogHelper.log(Level.INFO, renderType.name());
+        
         switch (renderType) {
             case ENTITY:
-                renderWand(0, 0, 0, 0.5F, stack);
+                renderWand(0.25F, 0F, 0F, 0.00125F, renderType, stack);
                 return;
             case EQUIPPED:
-                renderWand(0, 1, 1, 0.5F, stack);
+                renderWand(1.8F, 1F, 0F, 0.0075F, renderType, stack);
+                return;
+            case EQUIPPED_FIRST_PERSON:
+                renderWand(3F, -2.5F, -3.5F, 0.025F, renderType, stack);
                 return;
             case INVENTORY:
-                renderWand(0, 0, 0, 0.5F, stack);
+                renderWand(0.5F, -0.6F, -0.5F, 0.0035F, renderType, stack);
                 return;
             default:
-            	renderWand(0, 0, 0, 0.5F, stack);
                 return;
         }
         
     }
     
-    private void renderWand(float x, float y, float z, float scale, ItemStack stack) {
+    private void renderWand(float x, float y, float z, float scale, ItemRenderType renderType, ItemStack stack) {
         
         GL11.glPushMatrix();
         
         GL11.glDisable(GL11.GL_LIGHTING);
         
+        if (renderType == ItemRenderType.ENTITY) {
+            GL11.glRotatef(-45F, 0F, 0F, 1F);
+        }
+        if (renderType == ItemRenderType.EQUIPPED) {
+            GL11.glRotatef(-45F, 0F, 1F, 0F);
+            GL11.glRotatef(-16F, 0F, 0F, 1F);
+        }
+        if (renderType == ItemRenderType.EQUIPPED_FIRST_PERSON) {
+    		GL11.glRotatef(-140F, 0F, 1F, 0F);
+    		GL11.glRotatef(-45F, 0F, 0F, 1F);
+        }
+        if (renderType == ItemRenderType.INVENTORY) {
+        	GL11.glRotatef(-25F, 0F, 0F, 1F);
+        }
         GL11.glTranslatef(x, y, z);
         GL11.glScalef(scale, scale, scale);
-        GL11.glRotatef(180, 0, 1, 0);
         
         for (int i = 0; i < Wand.wands().size(); i++) {
             wandTextures.add(new ResourceLocation("majyyka", "textures/models/wands/" + wandNames.get(i)));
