@@ -9,10 +9,8 @@
 package majyyka.client;
 
 import java.util.LinkedList;
-import java.util.logging.Level;
 
 import majyyka.api.Wand;
-import majyyka.core.LogHelper;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;

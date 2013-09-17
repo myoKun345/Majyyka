@@ -25,7 +25,7 @@ import majyyka.api.MajyykaAPI
 import majyyka.item.MajyykWand
 import majyyka.item.Core
 import majyyka.item.Handle
-import myokun.lib.CraftingRecipeHandler
+import myokun.lib.util.CraftingRecipeHandler
 
 object MajyykaStuff {
     
@@ -58,15 +58,16 @@ object MajyykaStuff {
          * TODO Cores and handles I need to add
          * 	Vanilla Minecraft:
          * 		Obsidian
-         *   	Lapis?
-         *    	Glass? (Not sure about these two because of the transparent textures)
-         *     	Ice?
-         *  Majyyka:
+         *  	Lapis?
+         *  	Glass? (Not sure about these two because of the transparent textures)
+         *  	Ice?
+         * 	Majyyka:
          *  	Zillium
-         *   	Majyyk Ink? (really low durability because it is literally liquid?)
+         *  	Majyyk Ink? (really low durability because it is literally liquid?)
          * 	TC4 Compat:
          * 		Greatwood
          * 		Silverwood
+         *  	Quicksilver? (if it is still in Thaumcraft, also liquid wands could become a running gag type thing)
          */
         
         MajyykaAPI.addWandCore("oak", WandCoreOak)

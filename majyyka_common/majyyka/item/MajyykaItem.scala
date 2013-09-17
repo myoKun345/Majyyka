@@ -27,7 +27,7 @@ import net.minecraft.creativetab.CreativeTabs
 import majyyka.api.Wand
 import java.util.LinkedList
 import net.minecraft.nbt.NBTTagCompound
-import myokun.lib.util.StringUtils
+import myokun.lib.util.StringUtilities
 
 class MajyykaItem(arg:Int) extends Item(arg - ITEM_ID_CORRECTION) {
     
@@ -263,8 +263,8 @@ object MajyykWand extends MajyykaItem(wandID) {
     override def addInformation(stack:ItemStack, player:EntityPlayer, list:List[_], useExtra:Boolean) {
         
         if (stack.hasTagCompound()) {
-        	list.asInstanceOf[List[String]].add("Core: " + stack.stackTagCompound.getString("WandType").substring(0, StringUtils.firstIndexOfUppercase(stack.stackTagCompound.getString("WandType"))).capitalize)
-        	list.asInstanceOf[List[String]].add("Handle: " + stack.stackTagCompound.getString("WandType").substring(StringUtils.firstIndexOfUppercase(stack.stackTagCompound.getString("WandType"))).capitalize)
+        	list.asInstanceOf[List[String]].add("Core: " + stack.stackTagCompound.getString("WandType").substring(0, StringUtilities.firstIndexOfUppercase(stack.stackTagCompound.getString("WandType"))).capitalize)
+        	list.asInstanceOf[List[String]].add("Handle: " + stack.stackTagCompound.getString("WandType").substring(StringUtilities.firstIndexOfUppercase(stack.stackTagCompound.getString("WandType"))).capitalize)
         }
         else {
             list.asInstanceOf[List[String]].add("This wand doesn't have NBT.")
