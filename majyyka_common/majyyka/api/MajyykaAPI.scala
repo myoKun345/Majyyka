@@ -18,6 +18,7 @@ object MajyykaAPI {
     private var handleMapKeys:LinkedList[String] = new LinkedList[String]
     
     // TODO Add a method for cores and handles that are only compatible with certain counterparts
+    // TODO Add crafting recipes for the auto-wands - automatically of course
     
     def addWandCore(name:String, core:WandCore) {
         

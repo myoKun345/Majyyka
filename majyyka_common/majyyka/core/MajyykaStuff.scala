@@ -53,6 +53,21 @@ object MajyykaStuff {
     
     def addWands {
         
+        /*
+         * TODO Cores and handles I need to add
+         * 	Vanilla Minecraft:
+         * 		Obsidian
+         *   	Lapis?
+         *    	Glass? (Not sure about these two because of the transparent textures)
+         *     	Ice?
+         *  Majyyka:
+         *  	Zillium
+         *   	Majyyk Ink? (really low durability because it is literally liquid?)
+         * 	TC4 Compat:
+         * 		Greatwood
+         * 		Silverwood
+         */
+        
         MajyykaAPI.addWandCore("oak", WandCoreOak)
         MajyykaAPI.addWandCore("birch", WandCoreBirch)
         MajyykaAPI.addWandCore("spruce", WandCoreSpruce)
