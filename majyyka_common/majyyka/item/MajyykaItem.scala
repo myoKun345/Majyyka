@@ -27,7 +27,7 @@ import net.minecraft.creativetab.CreativeTabs
 import majyyka.api.Wand
 import java.util.LinkedList
 import net.minecraft.nbt.NBTTagCompound
-import majyyka.core.util.StringUtils
+import myokun.lib.util.StringUtils
 
 class MajyykaItem(arg:Int) extends Item(arg - ITEM_ID_CORRECTION) {
     

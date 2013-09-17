@@ -25,6 +25,7 @@ import majyyka.api.MajyykaAPI
 import majyyka.item.MajyykWand
 import majyyka.item.Core
 import majyyka.item.Handle
+import myokun.lib.CraftingRecipeHandler
 
 object MajyykaStuff {
     
