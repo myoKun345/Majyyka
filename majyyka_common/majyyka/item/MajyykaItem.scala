@@ -226,7 +226,7 @@ object MajyykWand extends MajyykaItem(wandID) {
         
     }
     
-    @SideOnly(Side.CLIENT)
+    /*@SideOnly(Side.CLIENT)
     override def registerIcons(register:IconRegister) {
         
         icons = new Array[Icon](wandTypes.size())
@@ -244,7 +244,7 @@ object MajyykWand extends MajyykaItem(wandID) {
         }
         return null
         
-    }
+    }*/
     
     @SideOnly(Side.CLIENT)
     override def getSubItems(id:Int, tab:CreativeTabs, list:List[_]) {

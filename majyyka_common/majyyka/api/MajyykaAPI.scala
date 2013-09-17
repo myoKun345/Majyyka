@@ -17,19 +17,22 @@ object MajyykaAPI {
     private var coreMapKeys:LinkedList[String] = new LinkedList[String]
     private var handleMapKeys:LinkedList[String] = new LinkedList[String]
     
+    // TODO Add a method for cores and handles that are only compatible with certain counterparts
+    
     def addWandCore(name:String, core:WandCore) {
         
         if (!WandCore.cores.containsKey(name)) {
             
             coreMapKeys.add(name)
             WandCore.cores.put(name, core)
+            LogHelper.log(Level.INFO, "Registered wand core: " + name.capitalize)
             
             for (i <- 0 until WandHandle.handles.size) {
                 
-                if (!Wand.wands.containsKey(name + handleMapKeys.get(i).substring(0, 1).toUpperCase() + handleMapKeys.get(i).substring(1))) {
+                if (!Wand.wands.containsKey((name + handleMapKeys.get(i).capitalize).capitalize)) {
                     
-                    LogHelper.log(Level.INFO, name + handleMapKeys.get(i).substring(0, 1).toUpperCase() + handleMapKeys.get(i).substring(1))
-                    Wand.wands.put(name + handleMapKeys.get(i).substring(0, 1).toUpperCase() + handleMapKeys.get(i).substring(1), new Wand(core, WandHandle.handles.get(handleMapKeys.get(i))))
+                    Wand.wands.put((name + handleMapKeys.get(i).capitalize).capitalize, new Wand(core, WandHandle.handles.get(handleMapKeys.get(i))))
+                    LogHelper.log(Level.INFO, "Registered wand: " + (name + handleMapKeys.get(i).capitalize).capitalize)
                     
                 }
                 
@@ -48,13 +51,14 @@ object MajyykaAPI {
             
             handleMapKeys.add(name)
             WandHandle.handles.put(name, handle)
+            LogHelper.log(Level.INFO, "Registered wand handle: " + name.capitalize)
             
             for (i <- 0 until WandCore.cores.size) {
                 
-                if (!Wand.wands.containsKey(coreMapKeys.get(i) + name.substring(0, 1).toUpperCase() + name.substring(1))) {
+                if (!Wand.wands.containsKey(coreMapKeys.get(i) + name.capitalize)) {
                     
-                    LogHelper.log(Level.INFO, coreMapKeys.get(i) + name.substring(0, 1).toUpperCase() + name.substring(1))
-                    Wand.wands.put(coreMapKeys.get(i) + name.substring(0, 1).toUpperCase() + name.substring(1), new Wand(WandCore.cores.get(coreMapKeys.get(i)), handle))
+                    Wand.wands.put(coreMapKeys.get(i) + name.capitalize, new Wand(WandCore.cores.get(coreMapKeys.get(i)), handle))
+                    LogHelper.log(Level.INFO, "Registered wand: " + (coreMapKeys.get(i) + name.capitalize).capitalize)
                     
                 }
                 
@@ -66,5 +70,8 @@ object MajyykaAPI {
         }
         
     }
+    
+    // TODO Move wand adding to a private method
+    // TODO Add a special public wand adding method, i.e. a wand not craftable with mix-and-match core and handle
     
 }

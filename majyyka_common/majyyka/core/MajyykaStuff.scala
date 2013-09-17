@@ -61,6 +61,7 @@ object MajyykaStuff {
         MajyykaAPI.addWandCore("gold", WandCoreGold)
         MajyykaAPI.addWandCore("emerald", WandCoreEmerald)
         MajyykaAPI.addWandCore("diamond", WandCoreDiamond)
+        MajyykaAPI.addWandCore("redstone", WandCoreRedstone)
         
         MajyykaAPI.addWandHandle("leather", WandHandleLeather)
         MajyykaAPI.addWandHandle("oak", WandHandleOak)
@@ -71,6 +72,7 @@ object MajyykaStuff {
         MajyykaAPI.addWandHandle("gold", WandHandleGold)
         MajyykaAPI.addWandHandle("emerald", WandHandleEmerald)
         MajyykaAPI.addWandHandle("diamond", WandHandleDiamond)
+        MajyykaAPI.addWandHandle("redstone", WandHandleRedstone)
         
     }
     
