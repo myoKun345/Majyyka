@@ -51,16 +51,16 @@ public class ItemWandRenderer implements IItemRenderer {
         
         switch (renderType) {
             case ENTITY:
-                renderWand(0.25F, 0F, 0F, 0.00125F, renderType, stack);
+                renderWand(0.25F, 0F, 0F, 0.05F, renderType, stack);
                 return;
             case EQUIPPED:
-                renderWand(1.8F, 1F, 0F, 0.0075F, renderType, stack);
+                renderWand(1.8F, 1F, 0F, 0.2F, renderType, stack);
                 return;
             case EQUIPPED_FIRST_PERSON:
-                renderWand(3F, -2.5F, -3.5F, 0.025F, renderType, stack);
+                renderWand(3F, -2.5F, -3.5F, 0.6F, renderType, stack);
                 return;
             case INVENTORY:
-                renderWand(0.5F, -0.6F, -0.5F, 0.0035F, renderType, stack);
+                renderWand(0.5F, -0.6F, -0.5F, 0.09F, renderType, stack);
                 return;
             default:
                 return;
@@ -92,7 +92,7 @@ public class ItemWandRenderer implements IItemRenderer {
         GL11.glScalef(scale, scale, scale);
         
         for (int i = 0; i < Wand.wands().size(); i++) {
-            wandTextures.add(new ResourceLocation("majyyka", "textures/models/wands/" + wandNames.get(i)));
+            wandTextures.add(new ResourceLocation("majyyka", "textures/models/wands/" + wandNames.get(i) + ".png"));
         }
         
         if (stack.hasTagCompound()) {
