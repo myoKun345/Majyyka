@@ -1,3 +1,3 @@
 [submodule "MyoKunLib"]
-	path = common
+	path = MyoKunLib
 	url = https://github.com/myoKun345/MyoKunLib.git
