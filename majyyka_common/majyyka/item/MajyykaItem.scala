@@ -28,6 +28,7 @@ import majyyka.api.Wand
 import java.util.LinkedList
 import net.minecraft.nbt.NBTTagCompound
 import myokun.lib.util.StringUtilities
+import majyyka.api.MajyykaAPI
 
 class MajyykaItem(arg:Int) extends Item(arg - ITEM_ID_CORRECTION) {
     
@@ -211,7 +212,12 @@ object Core extends MajyykaItem(wandCoreID) {
 
 object MajyykWand extends MajyykaItem(wandID) {
     
-    private var wandTypes:LinkedList[String] = new LinkedList[String](Wand.wands.keySet())
+    private var coreTypes:LinkedList[String] = new LinkedList[String](MajyykaAPI.coreMapKeys)
+    private var handleTypes:LinkedList[String] = new LinkedList[String](MajyykaAPI.handleMapKeys)
+    val bevelNames:Array[String] = Array("Black", "Blue", "Brown", "Cyan", "Gray", 
+    		"Green", "LightBlue", "LightGray", "Lime", "Magenta", 
+    		"Orange", "Pink", "Purple", "Red", "White",
+    		"Yellow")
     private var icons:Array[Icon] = new Array[Icon](0)
     
     override def getUnlocalizedName(stack:ItemStack):String = {
@@ -249,12 +255,15 @@ object MajyykWand extends MajyykaItem(wandID) {
     @SideOnly(Side.CLIENT)
     override def getSubItems(id:Int, tab:CreativeTabs, list:List[_]) {
         
-        for (i <- 0 until wandTypes.size()) {
-            var stack:ItemStack = new ItemStack(id, 1, i)
-            stack.stackTagCompound = new NBTTagCompound()
-            stack.stackTagCompound.setString("WandType", wandTypes.get(i))
-            stack.stackTagCompound.setInteger("WandTypeIndex", i)
-        	list.asInstanceOf[List[ItemStack]].add(stack)
+        for (i <- 0 until coreTypes.size()) {
+            for (j <- 0 until handleTypes.size()) {
+                var stack:ItemStack = new ItemStack(id, 1, 0)
+	            stack.stackTagCompound = new NBTTagCompound()
+	            stack.stackTagCompound.setString("Core", coreTypes.get(i))
+	            stack.stackTagCompound.setString("Handle", handleTypes.get(j))
+	            stack.stackTagCompound.setString("Bevel", bevelNames(0))
+	        	list.asInstanceOf[List[ItemStack]].add(stack)
+            }
         }
         
     }
@@ -263,8 +272,8 @@ object MajyykWand extends MajyykaItem(wandID) {
     override def addInformation(stack:ItemStack, player:EntityPlayer, list:List[_], useExtra:Boolean) {
         
         if (stack.hasTagCompound()) {
-        	list.asInstanceOf[List[String]].add("Core: " + stack.stackTagCompound.getString("WandType").substring(0, StringUtilities.firstIndexOfUppercase(stack.stackTagCompound.getString("WandType"))).capitalize)
-        	list.asInstanceOf[List[String]].add("Handle: " + stack.stackTagCompound.getString("WandType").substring(StringUtilities.firstIndexOfUppercase(stack.stackTagCompound.getString("WandType"))).capitalize)
+        	list.asInstanceOf[List[String]].add("Core: " + stack.stackTagCompound.getString("Core").capitalize)
+        	list.asInstanceOf[List[String]].add("Handle: " + stack.stackTagCompound.getString("Handle").capitalize)
         }
         else {
             list.asInstanceOf[List[String]].add("This wand doesn't have NBT.")

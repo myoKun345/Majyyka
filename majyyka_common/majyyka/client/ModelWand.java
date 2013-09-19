@@ -23,8 +23,12 @@ public class ModelWand extends ModelBase {
     	modelWand = AdvancedModelLoader.loadModel("/assets/majyyka/models/wand.obj");
     }
     
-    public void render() {
-        modelWand.renderPart("Cube");
+    public void render(String part) {
+        modelWand.renderPart(part);
+    }
+    
+    public void renderAll() {
+    	modelWand.renderAll();
     }
     
 }

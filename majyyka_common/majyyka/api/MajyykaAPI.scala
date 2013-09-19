@@ -14,8 +14,8 @@ import java.util.LinkedList
 
 object MajyykaAPI {
     
-    private var coreMapKeys:LinkedList[String] = new LinkedList[String]
-    private var handleMapKeys:LinkedList[String] = new LinkedList[String]
+    var coreMapKeys:LinkedList[String] = new LinkedList[String]
+    var handleMapKeys:LinkedList[String] = new LinkedList[String]
     
     // TODO Add a method for cores and handles that are only compatible with certain counterparts
     // TODO Add crafting recipes for the auto-wands - automatically of course

@@ -57,8 +57,6 @@ object MajyykaStuff {
         /*
          * TODO Cores and handles I need to add
          * 	Vanilla Minecraft:
-         * 		Obsidian
-         *  	Lapis?
          *  	Glass? (Not sure about these two because of the transparent textures)
          *  	Ice?
          * 	Majyyka:
@@ -79,6 +77,8 @@ object MajyykaStuff {
         MajyykaAPI.addWandCore("emerald", WandCoreEmerald)
         MajyykaAPI.addWandCore("diamond", WandCoreDiamond)
         MajyykaAPI.addWandCore("redstone", WandCoreRedstone)
+        MajyykaAPI.addWandCore("lapis", WandCoreLapis)
+        MajyykaAPI.addWandCore("obsidian", WandCoreObsidian)
         
         MajyykaAPI.addWandHandle("leather", WandHandleLeather)
         MajyykaAPI.addWandHandle("oak", WandHandleOak)
@@ -90,6 +90,8 @@ object MajyykaStuff {
         MajyykaAPI.addWandHandle("emerald", WandHandleEmerald)
         MajyykaAPI.addWandHandle("diamond", WandHandleDiamond)
         MajyykaAPI.addWandHandle("redstone", WandHandleRedstone)
+        MajyykaAPI.addWandHandle("lapis", WandHandleLapis)
+        MajyykaAPI.addWandHandle("obsidian", WandHandleObsidian)
         
     }
     

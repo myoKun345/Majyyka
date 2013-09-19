@@ -8,9 +8,10 @@
  */
 package majyyka.client;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 
-import majyyka.api.Wand;
+import majyyka.api.MajyykaAPI;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
@@ -22,8 +23,18 @@ import cpw.mods.fml.client.FMLClientHandler;
 public class ItemWandRenderer implements IItemRenderer {
     
     private ModelWand modelWand;
-    public LinkedList<ResourceLocation> wandTextures = new LinkedList<ResourceLocation>();
-    public LinkedList<String> wandNames = new LinkedList<String>(Wand.wands().keySet());
+    
+    public HashMap<String, ResourceLocation> coreTextures = new HashMap<String, ResourceLocation>();
+    public LinkedList<String> coreNames = new LinkedList<String>(MajyykaAPI.coreMapKeys());
+    
+    public HashMap<String, ResourceLocation> handleTextures = new HashMap<String, ResourceLocation>();
+    public LinkedList<String> handleNames = new LinkedList<String>(MajyykaAPI.handleMapKeys());
+    
+    public HashMap<String, ResourceLocation> bevelTextures = new HashMap<String, ResourceLocation>();
+    public String[] bevelNames = {"Black", "Blue", "Brown", "Cyan", "Gray", 
+    		"Green", "LightBlue", "LightGray", "Lime", "Magenta", 
+    		"Orange", "Pink", "Purple", "Red", "White",
+    		"Yellow"};
     
     public ItemWandRenderer() {
     	
@@ -89,17 +100,27 @@ public class ItemWandRenderer implements IItemRenderer {
         GL11.glTranslatef(x, y, z);
         GL11.glScalef(scale, scale, scale);
         
-        for (int i = 0; i < Wand.wands().size(); i++) {
-            wandTextures.add(new ResourceLocation("majyyka", "textures/models/wands/" + wandNames.get(i) + ".png"));
+        for (int i = 0; i < coreNames.size(); i++) {
+        	coreTextures.put(coreNames.get(i), new ResourceLocation("majyyka", "textures/models/wands/core" + coreNames.get(i).substring(0, 1).toUpperCase() + coreNames.get(i).substring(1) + ".png"));
+        }
+        
+        for (int i = 0; i < handleNames.size(); i++) {
+        	handleTextures.put(handleNames.get(i), new ResourceLocation("majyyka", "textures/models/wands/handle" + handleNames.get(i).substring(0, 1).toUpperCase() + handleNames.get(i).substring(1) + ".png"));
+        }
+        
+        for (int i = 0; i < 16; i++) {
+        	bevelTextures.put(bevelNames[i], new ResourceLocation("majyyka", "textures/models/wands/bevel" + bevelNames[i] + ".png"));
         }
         
         if (stack.hasTagCompound()) {
-            
-            FMLClientHandler.instance().getClient().renderEngine.bindTexture(wandTextures.get(stack.stackTagCompound.getInteger("WandTypeIndex")));
-            
+        	FMLClientHandler.instance().getClient().renderEngine.bindTexture(coreTextures.get(stack.stackTagCompound.getString("Core")));
+        	modelWand.render("Core");
+        	FMLClientHandler.instance().getClient().renderEngine.bindTexture(bevelTextures.get(stack.stackTagCompound.getString("Bevel")));
+        	modelWand.render("Bevel");
+        	FMLClientHandler.instance().getClient().renderEngine.bindTexture(handleTextures.get(stack.stackTagCompound.getString("Handle")));
+        	modelWand.render("Handle");
         }
-        
-        modelWand.render();
+        //modelWand.renderAll();
         
         GL11.glEnable(GL11.GL_LIGHTING);
         GL11.glPopMatrix();
