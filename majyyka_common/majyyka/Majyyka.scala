@@ -56,9 +56,8 @@ object Majyyka {
         
         MajyykaStuff.addFluids
         
-        LogHelper.log(Level.INFO, "" + Wand.wands.size())
-        LogHelper.log(Level.INFO, "" + Wand.wands.keySet())
-        LogHelper.log(Level.INFO, "" + Wand.wands.values())
+        LogHelper.log(Level.INFO, "Wands registered: " + Wand.wands.size())
+        LogHelper.log(Level.INFO, "Wand combinations: " + Wand.wands.keySet())
         
     }
     
