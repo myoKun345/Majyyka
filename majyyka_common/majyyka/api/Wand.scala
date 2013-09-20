@@ -22,14 +22,14 @@ object Wand {
     
 }
 
-class WandCore(var power:Float, var item:ItemStack)
+class WandCore(var power:Float, var item:ItemStack, var aspects:Array[TAspect])
 object WandCore {
     
     var cores:LinkedHashMap[String, WandCore] = new LinkedHashMap[String, WandCore]
     
 }
 
-class WandHandle(var power:Float, var item:ItemStack)
+class WandHandle(var power:Float, var item:ItemStack, var aspects:Array[TAspect])
 object WandHandle {
     
     var handles:LinkedHashMap[String, WandHandle] = new LinkedHashMap[String, WandHandle]

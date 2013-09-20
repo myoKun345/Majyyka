@@ -26,6 +26,18 @@ import majyyka.item.MajyykWand
 import majyyka.item.Core
 import majyyka.item.Handle
 import myokun.lib.util.CraftingRecipeHandler
+import majyyka.aspect.AspectLight
+import majyyka.aspect.AspectDark
+import majyyka.aspect.AspectPlant
+import majyyka.aspect.AspectWater
+import majyyka.aspect.AspectFire
+import majyyka.aspect.AspectStone
+import majyyka.aspect.AspectSpace
+import majyyka.aspect.AspectTime
+import majyyka.aspect.AspectCrystal
+import majyyka.aspect.AspectElectric
+import majyyka.aspect.AspectVoid
+import majyyka.aspect.AspectAnimal
 
 object MajyykaStuff {
     
@@ -92,6 +104,23 @@ object MajyykaStuff {
         MajyykaAPI.addWandHandle("redstone", WandHandleRedstone)
         MajyykaAPI.addWandHandle("lapis", WandHandleLapis)
         MajyykaAPI.addWandHandle("obsidian", WandHandleObsidian)
+        
+    }
+    
+    def addAspects {
+        
+        MajyykaAPI.addAspect("luce", AspectLight)
+        MajyykaAPI.addAspect("tenebre", AspectDark)
+        MajyykaAPI.addAspect("vatte", AspectWater)
+        MajyykaAPI.addAspect("herbe", AspectPlant)
+        MajyykaAPI.addAspect("igne", AspectFire)
+        MajyykaAPI.addAspect("petrae", AspectStone)
+        MajyykaAPI.addAspect("tempore", AspectTime)
+        MajyykaAPI.addAspect("rymme", AspectSpace)
+        MajyykaAPI.addAspect("vitre", AspectCrystal)
+        MajyykaAPI.addAspect("electricitate", AspectElectric)
+        MajyykaAPI.addAspect("dyre", AspectAnimal)
+        MajyykaAPI.addAspect("vacue", AspectVoid)
         
     }
     

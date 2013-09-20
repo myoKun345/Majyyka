@@ -50,6 +50,8 @@ object Majyyka {
         
         MajyykaStuff.addWands
         
+        MajyykaStuff.addAspects
+        
         MajyykaStuff.addBlocks
         
         MajyykaStuff.addItems

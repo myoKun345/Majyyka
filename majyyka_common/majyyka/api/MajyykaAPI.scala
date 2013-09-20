@@ -16,10 +16,17 @@ object MajyykaAPI {
     
     var coreMapKeys:LinkedList[String] = new LinkedList[String]
     var handleMapKeys:LinkedList[String] = new LinkedList[String]
+    var aspectMapKeys:LinkedList[String] = new LinkedList[String]
     
     // TODO Add a method for cores and handles that are only compatible with certain counterparts
     // TODO Add crafting recipes for the auto-wands - automatically of course
     
+    /**
+     * Adds a wand core that is able to be mixed-and-matched with all other handles.
+     * Do not use this if you want your core to be compatible with only your specified handles!
+     * @param name - The name of the core; must be lowercase.
+     * @param core - The actual WandCore object.
+     */
     def addWandCore(name:String, core:WandCore) {
         
         if (!WandCore.cores.containsKey(name)) {
@@ -46,6 +53,12 @@ object MajyykaAPI {
         
     }
     
+    /**
+     * Adds a wand handle that is able to be mixed-and-matched with all other cores.
+     * Do not use this if you want your handle to be compatible with only your specified cores!
+     * @param name - The name of the handle; must be lowercase.
+     * @param handle - The actual WandHandle object.
+     */
     def addWandHandle(name:String, handle:WandHandle) {
         
         if (!WandHandle.handles.containsKey(name)) {
@@ -68,6 +81,21 @@ object MajyykaAPI {
         }
         else {
             LogHelper.log(Level.SEVERE, "A mod tried to add a wand handle that has already been registered!")
+        }
+        
+    }
+    
+    def addAspect(name:String, aspect:TAspect) {
+        
+        if (!AspectRegistry.aspects.containsKey(name)) {
+            
+            aspectMapKeys.add(name)
+            AspectRegistry.aspects.put(name, aspect)
+            LogHelper.log(Level.INFO, "Registered majyyk aspect: " + name.capitalize)
+            
+        }
+        else {
+            LogHelper.log(Level.SEVERE, "A mod tried to add a majyyk aspect that has already been registered!")
         }
         
     }
