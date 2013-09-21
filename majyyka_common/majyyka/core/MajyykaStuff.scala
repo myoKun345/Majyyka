@@ -26,18 +26,18 @@ import majyyka.item.MajyykWand
 import majyyka.item.Core
 import majyyka.item.Handle
 import myokun.lib.util.CraftingRecipeHandler
-import majyyka.aspect.AspectLight
-import majyyka.aspect.AspectDark
-import majyyka.aspect.AspectPlant
-import majyyka.aspect.AspectWater
-import majyyka.aspect.AspectFire
-import majyyka.aspect.AspectStone
-import majyyka.aspect.AspectSpace
-import majyyka.aspect.AspectTime
-import majyyka.aspect.AspectCrystal
-import majyyka.aspect.AspectElectric
-import majyyka.aspect.AspectVoid
-import majyyka.aspect.AspectAnimal
+import majyyka.api.AspectLight
+import majyyka.api.AspectDark
+import majyyka.api.AspectPlant
+import majyyka.api.AspectWater
+import majyyka.api.AspectFire
+import majyyka.api.AspectStone
+import majyyka.api.AspectSpace
+import majyyka.api.AspectTime
+import majyyka.api.AspectCrystal
+import majyyka.api.AspectElectric
+import majyyka.api.AspectVoid
+import majyyka.api.AspectAnimal
 
 object MajyykaStuff {
     

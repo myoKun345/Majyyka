@@ -11,5 +11,6 @@ package majyyka.api
 trait TAspect {
     
     var name:String
+    var subAspects:Array[TAspect]
     
 }

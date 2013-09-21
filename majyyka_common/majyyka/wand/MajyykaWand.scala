@@ -10,15 +10,15 @@ package majyyka.core
 
 import majyyka.api.WandCore
 import majyyka.api.WandHandle
-import majyyka.aspect.AspectAnimal
-import majyyka.aspect.AspectCrystal
-import majyyka.aspect.AspectElectric
-import majyyka.aspect.AspectFire
-import majyyka.aspect.AspectPlant
-import majyyka.aspect.AspectSpace
-import majyyka.aspect.AspectStone
-import majyyka.aspect.AspectTime
-import majyyka.aspect.AspectWater
+import majyyka.api.AspectAnimal
+import majyyka.api.AspectCrystal
+import majyyka.api.AspectElectric
+import majyyka.api.AspectFire
+import majyyka.api.AspectPlant
+import majyyka.api.AspectSpace
+import majyyka.api.AspectStone
+import majyyka.api.AspectTime
+import majyyka.api.AspectWater
 import majyyka.item.Core
 import majyyka.item.Handle
 import majyyka.item.MajyykaStick
