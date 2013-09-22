@@ -37,7 +37,7 @@ class ItemWandRenderer extends IItemRenderer {
     
     def handleRenderType(stack:ItemStack, renderType:ItemRenderType):Boolean = {
         
-        return renderType != ItemRenderType.FIRST_PERSON_HOLDING && renderType != ItemRenderType.FIRST_PERSON_MAP
+        return renderType != ItemRenderType.FIRST_PERSON_MAP
         
     }
     

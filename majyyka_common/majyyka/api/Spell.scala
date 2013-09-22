@@ -8,7 +8,7 @@
  */
 package majyyka.api
 
-abstract class Spell(affinity:EnumAffinity, aspects:Array[TAspect]) {
+abstract class Spell(affinity:EnumAffinity, aspects:Array[TAspect], baseCost:Float) {
     
     
     
