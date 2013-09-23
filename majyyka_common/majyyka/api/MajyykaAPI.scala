@@ -11,6 +11,7 @@ package majyyka.api
 import majyyka.core.LogHelper
 import java.util.logging.Level
 import java.util.LinkedList
+import myokun.lib.util.CraftingRecipeHandler
 
 object MajyykaAPI {
     

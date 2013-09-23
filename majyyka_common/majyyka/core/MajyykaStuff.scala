@@ -38,6 +38,9 @@ import majyyka.api.AspectCrystal
 import majyyka.api.AspectElectric
 import majyyka.api.AspectVoid
 import majyyka.api.AspectAnimal
+import majyyka.api.WandCore
+import majyyka.api.WandHandle
+import net.minecraft.nbt.NBTTagCompound
 
 object MajyykaStuff {
     
@@ -136,6 +139,28 @@ object MajyykaStuff {
         GameRegistry.addShapelessRecipe(new ItemStack(MajyykInk, 3), new ItemStack(MajyykFlower, 1), new ItemStack(Item.dyePowder, 1, 12))
         GameRegistry.addShapelessRecipe(new ItemStack(MajyykBook, 1), new ItemStack(Item.book, 1), new ItemStack(MajyykInk, 1))
         GameRegistry.addShapelessRecipe(new ItemStack(MajyykImbuedDirt, 1), new ItemStack(MajyykInk, 1), new ItemStack(Block.dirt, 1))
+        
+    }
+    
+    def addWandCrafting {
+        
+        val bevelNames:Array[String] = Array("Black", "Red", "Green", "Brown", "Blue", 
+    		"Purple", "Cyan", "LightGray", "Gray", "Pink", 
+    		"Lime", "Yellow", "LightBlue", "Magenta", "Orange",
+    		"White")
+        
+        for (i <- 0 until WandCore.cores.size()) {
+            for (j <- 0 until WandHandle.handles.size()) {
+                for (k <- 0 until 16) {
+                    var stack:ItemStack = new ItemStack(MajyykWand, 1)
+                    stack.stackTagCompound = new NBTTagCompound()
+                    stack.stackTagCompound.setString("Core", MajyykaAPI.coreMapKeys.get(i))
+                    stack.stackTagCompound.setString("Handle", MajyykaAPI.handleMapKeys.get(j))
+                    stack.stackTagCompound.setString("Bevel", bevelNames(k))
+                    CraftingRecipeHandler.addShapedRecipe(stack, "AX", "YZ", null, Array(WandCore.cores.get(MajyykaAPI.coreMapKeys.get(i)).item, WandHandle.handles.get(MajyykaAPI.handleMapKeys.get(j)).item, new ItemStack(MajyykInk, 1), new ItemStack(Item.dyePowder, 1, k)), Array('X', 'Y', 'Z', 'A'))
+                }
+            }
+        }
         
     }
     

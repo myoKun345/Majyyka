@@ -81,7 +81,7 @@ object Majyyka {
     @EventHandler
     def postInit(event:FMLPostInitializationEvent) {
         
-        
+        MajyykaStuff.addWandCrafting
         
     }
     

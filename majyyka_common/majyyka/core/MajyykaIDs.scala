@@ -67,8 +67,15 @@ object MajyykaIDs {
         val majyykInkUnloc:String = "majyykInk"
         val majyykBookUnloc:String = "majyykBook"
         val stickUnloc:Array[String] = Array("stickOak", "stickBirch", "stickSpruce", "stickJungle")
-        val coreUnloc:Array[String] = Array("coreIron", "coreGold", "coreEmerald", "coreDiamond", "coreRedstone")
-        val handleUnloc:Array[String] = Array("handleLeather", "handleOak", "handleBirch", "handleSpruce", "handleJungle", "handleIron", "handleGold", "handleEmerald", "handleDiamond", "handleRedstone")
+        val coreUnloc:Array[String] = 
+            Array("coreIron", "coreGold", "coreEmerald", 
+            "coreDiamond", "coreRedstone", "coreLapis",
+            "coreObsidian")
+        val handleUnloc:Array[String] = 
+            Array("handleLeather", "handleOak", "handleBirch", 
+            "handleSpruce", "handleJungle", "handleIron", 
+            "handleGold", "handleEmerald", "handleDiamond", 
+            "handleRedstone", "handleLapis", "handleObsidian")
     
     /* Fluid */
         /* Unlocalized Names */
