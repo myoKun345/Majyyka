@@ -10,7 +10,7 @@ package majyyka.core
 
 import majyyka.api.WandCore
 import majyyka.api.WandHandle
-import majyyka.api.AspectAnimal
+import majyyka.api.AspectLife
 import majyyka.api.AspectCrystal
 import majyyka.api.AspectElectric
 import majyyka.api.AspectFire
@@ -36,7 +36,7 @@ object WandCoreRedstone extends WandCore(5.0F, new ItemStack(Core, 1, 4), Array(
 object WandCoreLapis extends WandCore(3.0F, new ItemStack(Core, 1, 5), Array(AspectStone, AspectWater))
 object WandCoreObsidian extends WandCore(6.0F, new ItemStack(Core, 1, 6), Array(AspectStone, AspectCrystal))
 
-object WandHandleLeather extends WandHandle(0.0F, new ItemStack(Handle, 1, 0), Array(AspectAnimal))
+object WandHandleLeather extends WandHandle(0.0F, new ItemStack(Handle, 1, 0), Array(AspectLife))
 object WandHandleOak extends WandHandle(1.0F, new ItemStack(Handle, 1, 1), Array(AspectPlant, AspectTime))
 object WandHandleBirch extends WandHandle(0.9F, new ItemStack(Handle, 1, 2), Array(AspectPlant, AspectFire))
 object WandHandleSpruce extends WandHandle(1.1F, new ItemStack(Handle, 1, 3), Array(AspectPlant, AspectWater))

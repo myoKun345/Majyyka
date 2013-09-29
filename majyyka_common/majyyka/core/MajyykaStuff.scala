@@ -37,10 +37,10 @@ import majyyka.api.AspectTime
 import majyyka.api.AspectCrystal
 import majyyka.api.AspectElectric
 import majyyka.api.AspectVoid
-import majyyka.api.AspectAnimal
 import majyyka.api.WandCore
 import majyyka.api.WandHandle
 import net.minecraft.nbt.NBTTagCompound
+import majyyka.api.AspectLife
 
 object MajyykaStuff {
     
@@ -122,7 +122,7 @@ object MajyykaStuff {
         MajyykaAPI.addAspect("rymme", AspectSpace)
         MajyykaAPI.addAspect("vitre", AspectCrystal)
         MajyykaAPI.addAspect("electricitate", AspectElectric)
-        MajyykaAPI.addAspect("dyre", AspectAnimal)
+        MajyykaAPI.addAspect("vite", AspectLife)
         MajyykaAPI.addAspect("vacue", AspectVoid)
         
     }

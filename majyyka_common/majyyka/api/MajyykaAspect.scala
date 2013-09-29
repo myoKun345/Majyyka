@@ -74,9 +74,9 @@ object AspectElectric extends TAspect {
     var subAspects:Array[TAspect] = Array(AspectLight, AspectDark, AspectVoid, AspectFire)
     
 }
-object AspectAnimal extends TAspect {
+object AspectLife extends TAspect {
     
-    var name:String = "dyre"
+    var name:String = "vite"
     var subAspects:Array[TAspect] = Array(AspectLight, AspectDark, AspectVoid, AspectElectric, AspectPlant)
     
 }
