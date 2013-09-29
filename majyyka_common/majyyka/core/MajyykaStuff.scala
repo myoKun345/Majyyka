@@ -41,6 +41,9 @@ import majyyka.api.WandCore
 import majyyka.api.WandHandle
 import net.minecraft.nbt.NBTTagCompound
 import majyyka.api.AspectLife
+import thaumcraft.api.research.ResearchCategories
+import thaumcraft.api.ThaumcraftApi
+import net.minecraft.util.ResourceLocation
 
 object MajyykaStuff {
     
@@ -174,6 +177,12 @@ object MajyykaStuff {
         OreDictionary.registerOre("stickBirch", new ItemStack(MajyykaStick, 1, 1))
         OreDictionary.registerOre("stickSpruce", new ItemStack(MajyykaStick, 1, 2))
         OreDictionary.registerOre("stickJungle", new ItemStack(MajyykaStick, 1, 3))
+        
+    }
+    
+    def addTCResearch {
+        
+        ResearchCategories.registerCategory("Majyyka", new ResourceLocation("majyyka", "textures/items/majyykBook.png"), new ResourceLocation("majyyka", "textures/gui/researchBG.png"))
         
     }
 

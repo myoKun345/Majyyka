@@ -72,6 +72,8 @@ object Majyyka {
         
         MajyykaStuff.addOreDict
         
+        MajyykaStuff.addTCResearch
+        
         GameRegistry.registerWorldGenerator(MajyykaWorldGen)
         
         proxy.initRendering
