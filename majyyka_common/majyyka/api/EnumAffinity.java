@@ -10,6 +10,11 @@ package majyyka.api;
 
 public enum EnumAffinity {
 	
-	Melee, Range, Self, Special;
+	FuzzyNearPro, FuzzyNearAnti, 
+	FuzzyFarPro, FuzzyFarAnti,
+	PreciseNearPro, PreciseNearAnti,
+	PreciseFarPro, PreciseFarAnti,
+	SelfPro, SelfAnti,
+	Special;
 	
 }
