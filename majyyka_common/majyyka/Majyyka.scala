@@ -30,6 +30,8 @@ import cpw.mods.fml.common.registry.GameRegistry
 import majyyka.core.MajyykaWorldGen
 import java.util.logging.Level
 import majyyka.api.Wand
+import net.minecraftforge.common.MinecraftForge
+import majyyka.core.player.PlayerTracker
 
 @Mod(modid="Majyyka", name="Majyyka", version="0.0.01.@@BUILD@@", modLanguage="scala")
 @NetworkMod(channels=Array("majyyka"), clientSideRequired=true, serverSideRequired=false, packetHandler=classOf[PacketHandler])
@@ -73,6 +75,9 @@ object Majyyka {
         MajyykaStuff.addOreDict
         
         MajyykaStuff.addTCResearch
+        
+        MinecraftForge.EVENT_BUS.register(PlayerTracker)
+        GameRegistry.registerPlayerTracker(PlayerTracker)
         
         GameRegistry.registerWorldGenerator(MajyykaWorldGen)
         

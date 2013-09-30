@@ -14,5 +14,8 @@ object MajyykaReference {
     final val MOD_NAME:String = "Majyyka"
     final val MOD_VERSION:String = "0.0.01.@@BUILD@@"
     final val ITEM_ID_CORRECTION:Int = 256
-
+    
+    final val mjykId:String = "majyykaMjyk"
+    final val rschId:String = "majyykaRsch"
+    
 }
