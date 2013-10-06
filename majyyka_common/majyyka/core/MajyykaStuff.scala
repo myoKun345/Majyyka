@@ -44,6 +44,8 @@ import majyyka.api.AspectLife
 import thaumcraft.api.research.ResearchCategories
 import thaumcraft.api.ThaumcraftApi
 import net.minecraft.util.ResourceLocation
+import cpw.mods.fml.common.event.FMLServerStartingEvent
+import majyyka.core.player.MajyykDebugCommand
 
 object MajyykaStuff {
     
@@ -184,6 +186,10 @@ object MajyykaStuff {
         
         ResearchCategories.registerCategory("Majyyka", new ResourceLocation("majyyka", "textures/items/majyykBook.png"), new ResourceLocation("majyyka", "textures/gui/researchBG.png"))
         
+    }
+    
+    def addCommands(event:FMLServerStartingEvent) {
+        event.registerServerCommand(MajyykDebugCommand)
     }
 
 }

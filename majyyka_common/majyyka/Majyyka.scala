@@ -32,6 +32,7 @@ import java.util.logging.Level
 import majyyka.api.Wand
 import net.minecraftforge.common.MinecraftForge
 import majyyka.core.player.PlayerTracker
+import cpw.mods.fml.common.event.FMLServerStartingEvent
 
 @Mod(modid="Majyyka", name="Majyyka", version="0.0.01.@@BUILD@@", modLanguage="scala")
 @NetworkMod(channels=Array("majyyka"), clientSideRequired=true, serverSideRequired=false, packetHandler=classOf[PacketHandler])
@@ -89,6 +90,13 @@ object Majyyka {
     def postInit(event:FMLPostInitializationEvent) {
         
         MajyykaStuff.addWandCrafting
+        
+    }
+    
+    @EventHandler
+    def serverStart(event:FMLServerStartingEvent) {
+        
+        MajyykaStuff.addCommands(event)
         
     }
     

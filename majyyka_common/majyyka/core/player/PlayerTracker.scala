@@ -16,13 +16,16 @@ import net.minecraft.entity.player.EntityPlayer
 import majyyka.core.lib.MajyykaReference
 import net.minecraftforge.event.entity.living.LivingEvent
 import net.minecraft.entity.EntityLiving
+import majyyka.core.LogHelper
+import java.util.logging.Level
+import net.minecraft.entity.EntityLivingBase
 
 object PlayerTracker extends IPlayerTracker {
     
     @ForgeSubscribe
     def onEntityConstruct(event:EntityConstructing) {
-        if (event.entity.isInstanceOf[EntityLiving]) {
-	        event.entity.registerExtendedProperties(MajyykaReference.mjykId, new MajyykDataHandler(event.entity.asInstanceOf[EntityLiving]))
+        if (event.entity.isInstanceOf[EntityLivingBase]) {
+	        event.entity.registerExtendedProperties(MajyykaReference.mjykId, new MajyykDataHandler(event.entity))
 	        if (event.entity.isInstanceOf[EntityPlayer]) {
 	            event.entity.registerExtendedProperties(MajyykaReference.rschId, new ResearchHandler(event.entity.asInstanceOf[EntityPlayer]))
 	        }
@@ -31,13 +34,13 @@ object PlayerTracker extends IPlayerTracker {
     
     @ForgeSubscribe
     def onStillAlive(event:LivingEvent) {
-        if (event.entity.isInstanceOf[EntityLiving]) {
-            var ent = event.entityLiving
+        if (event.entity.isInstanceOf[EntityLivingBase]) {
+            var ent = event.entity
             var mjyk:MajyykDataHandler = MajyykDataHandler.forPlayer(ent)
             
-            var majyyk = mjyk.getMajyyk
-            var level = mjyk.getLevel
-            var limit = MajyykLimitAlgo.getMajyykLimitForLevel(level)
+            var majyyk:Double = mjyk.getMajyyk
+            var level:Int = mjyk.getLevel
+            var limit:Double = MajyykLimitAlgo.getMajyykLimitForLevel(level)
             if (majyyk < limit) {
                 var timer = 0
                 timer += 1
@@ -45,6 +48,9 @@ object PlayerTracker extends IPlayerTracker {
                     mjyk.incrementMajyyk(1.0D)
                     timer = 0
                 }
+            }
+            if (majyyk > limit) {
+                mjyk.setMajyyk(limit)
             }
         }
     }
