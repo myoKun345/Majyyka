@@ -29,6 +29,7 @@ object ConfigHandler {
         wandCoreID = config.getItem(itemCategory, wandCoreKey, wandCoreDefault).getInt
         wandHandleID = config.getItem(itemCategory, wandHandleKey, wandHandleDefault).getInt
         wandID = config.getItem(itemCategory, wandKey, wandDefault).getInt
+        clawID = config.getItem(itemCategory, clawKey, clawDefault).getInt
         
         config.save
         

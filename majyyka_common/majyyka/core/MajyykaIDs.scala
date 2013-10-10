@@ -46,6 +46,7 @@ object MajyykaIDs {
         val wandCoreDefault:Int = 7803
         val wandHandleDefault:Int = 7804
         val wandDefault:Int = 7805
+        val clawDefault:Int = 7806
         
         /* Current IDs */
         var majyykInkID:Int = 0
@@ -54,6 +55,7 @@ object MajyykaIDs {
         var wandCoreID:Int = 0
         var wandHandleID:Int = 0
         var wandID:Int = 0
+        var clawID:Int = 0
         
         /* Config Keys */
         val majyykInkKey:String = "MajyykInk"
@@ -62,6 +64,7 @@ object MajyykaIDs {
         val wandCoreKey:String = "WandCores"
         val wandHandleKey:String = "WandHandles"
         val wandKey:String = "Wand"
+        val clawKey:String = "Madclaw"
         
         /* Unlocalized Names */
         val majyykInkUnloc:String = "majyykInk"
@@ -76,6 +79,7 @@ object MajyykaIDs {
             "handleSpruce", "handleJungle", "handleIron", 
             "handleGold", "handleEmerald", "handleDiamond", 
             "handleRedstone", "handleLapis", "handleObsidian")
+        val clawUnloc:String = "madclaw"
     
     /* Fluid */
         /* Unlocalized Names */

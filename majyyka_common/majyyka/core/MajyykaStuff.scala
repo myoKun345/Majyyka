@@ -46,6 +46,12 @@ import thaumcraft.api.ThaumcraftApi
 import net.minecraft.util.ResourceLocation
 import cpw.mods.fml.common.event.FMLServerStartingEvent
 import majyyka.core.player.MajyykDebugCommand
+import net.minecraft.potion.Potion
+import java.lang.reflect.Field
+import java.lang.reflect.Modifier
+import majyyka.potion.PotionBleed
+import majyyka.item.Madclaw
+import java.util.logging.Level
 
 object MajyykaStuff {
     
@@ -65,6 +71,7 @@ object MajyykaStuff {
         GameRegistry.registerItem(Core, "majyykWandCore")
         GameRegistry.registerItem(Handle, "majyykWandHandle")
         GameRegistry.registerItem(MajyykWand, "majyykWand")
+        GameRegistry.registerItem(Madclaw, "madclaw")
         
     }
     
@@ -77,14 +84,13 @@ object MajyykaStuff {
         /*
          * TODO Cores and handles I need to add
          * 	Vanilla Minecraft:
+         *  	Quartz
          *  	Glass? (Not sure about these two because of the transparent textures)
          *  	Ice?
          * 	Majyyka:
          *  	Zillium
          *  	Majyyk Ink? (really low durability because it is literally liquid?)
          * 	TC4 Compat:
-         * 		Greatwood
-         * 		Silverwood
          *  	Quicksilver? (if it is still in Thaumcraft, also liquid wands could become a running gag type thing)
          */
         
@@ -189,7 +195,43 @@ object MajyykaStuff {
     }
     
     def addCommands(event:FMLServerStartingEvent) {
+        
         event.registerServerCommand(MajyykDebugCommand)
+        
+    }
+    
+    def addPotions {
+        
+        PotionBleed
+        
+    }
+    
+    def reflectPotion {
+        
+        LogHelper.log(Level.INFO, "reflecting potion")
+        
+        var potionTypes:Array[Potion] = null
+        
+        for (f <- classOf[Potion].getDeclaredFields()) {
+            f.setAccessible(true)
+            try {
+                if (f.getName().equals("potionTypes") || f.getName().equals("field_76425_a")) {
+                    var modfield:Field = classOf[Field].getDeclaredField("modifiers")
+                    
+                    modfield.setAccessible(true)
+                    modfield.setInt(f, f.getModifiers() & ~Modifier.FINAL)
+                    potionTypes = f.get(null).asInstanceOf[Array[Potion]]
+                    var newPotionTypes:Array[Potion] = new Array[Potion](768)
+                    System.arraycopy(potionTypes, 0, newPotionTypes, 0, potionTypes.length)
+                    f.set(null, newPotionTypes)
+                }
+            }
+            catch {
+                case e:Exception =>
+                    e.printStackTrace()
+            }
+        }
+        
     }
 
 }

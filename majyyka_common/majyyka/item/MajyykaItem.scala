@@ -29,6 +29,15 @@ import java.util.LinkedList
 import net.minecraft.nbt.NBTTagCompound
 import myokun.lib.util.StringUtilities
 import majyyka.api.MajyykaAPI
+import net.minecraft.entity.EntityLivingBase
+import net.minecraft.util.DamageSource
+import java.util.Random
+import net.minecraft.potion.PotionEffect
+import net.minecraft.potion.PotionHelper
+import majyyka.potion.PotionBleed
+import majyyka.core.LogHelper
+import java.util.logging.Level
+import net.minecraft.potion.Potion
 
 class MajyykaItem(arg:Int) extends Item(arg - ITEM_ID_CORRECTION) {
     
@@ -280,6 +289,25 @@ object MajyykWand extends MajyykaItem(wandID) {
             list.asInstanceOf[List[String]].add("You will need to make a new one.")
         }
         
+    }
+    
+}
+
+object Madclaw extends MajyykaItem(clawID) {
+    
+    val rand:Random = new Random
+    
+    val dmgVsEnt:Float = 6.0F
+    
+    setMaxDamage(450)
+    
+    override def hitEntity(stack:ItemStack, perpetrator:EntityLivingBase, target:EntityLivingBase):Boolean = {
+        if (perpetrator.attackEntityFrom(DamageSource.causeMobDamage(target), dmgVsEnt)) {
+            stack.damageItem(1, target)
+            perpetrator.addPotionEffect(new PotionEffect(PotionBleed.getId(), 1200, 0))
+        }
+        
+        return true
     }
     
 }
